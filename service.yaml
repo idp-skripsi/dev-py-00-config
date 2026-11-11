@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dev-py-00
+  labels:
+   app: dev-py-00
+spec:
+  type: ClusterIP
+  selector:
+    app: dev-py-00
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8000
+      targetPort: http

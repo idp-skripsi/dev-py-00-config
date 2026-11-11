@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-py-00
+  labels:
+    app: dev-py-00
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev-py-00
+  template:
+    metadata:
+      labels:
+        app: dev-py-00
+    spec:
+      containers:
+        - name: dev-py-00
+          image: ghcr.io/idp-skripsi/dev-py-00-config
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          env: 
+            - name: SERVICE_NAME
+              value: "dev-py-00"
+            - name: APP_VERSION
+              value: "1.0.0"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+              initialDelaySeconds: 5
+          readinessProbe:
+            httpGet:
+             path: /healthz
+             port: http
+
+        
+
+
