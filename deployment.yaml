@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: dev-py-00
-          image: ghcr.io/idp-skripsi/dev-py-00-config
+          image: ghcr.io/idp-skripsi/dev-py-00-app
           resources:
             requests:
               cpu: "50m"
@@ -31,17 +31,18 @@ spec:
           env: 
             - name: SERVICE_NAME
               value: "dev-py-00"
-            - name: APP_VERSION
+            - name: API_VERSION
               value: "1.0.0"
           livenessProbe:
             httpGet:
               path: /healthz
               port: http
-              initialDelaySeconds: 5
+            initialDelaySeconds: 5
           readinessProbe:
             httpGet:
-             path: /healthz
-             port: http
+              path: /healthz
+              port: http
+            initialDelaySeconds: 3
 
         
 
