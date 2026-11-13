@@ -31,8 +31,6 @@ spec:
           env: 
             - name: SERVICE_NAME
               value: "dev-py-00"
-            - name: API_VERSION
-              value: "1.0.0"
           livenessProbe:
             httpGet:
               path: /healthz
