@@ -7,4 +7,4 @@ resources:
 images:
 - name: ghcr.io/idp-skripsi/dev-py-00-app
   newName: ghcr.io/idp-skripsi/dev-py-00-app
-  newTag: sha-078d227
+  newTag: sha-b52cecb
